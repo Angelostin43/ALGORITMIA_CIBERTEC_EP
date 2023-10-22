@@ -1,0 +1,43 @@
+package examen;
+
+public class ArregloPesos {
+	private double peso[];
+	private int indice;
+
+	public ArregloPesos() {
+		peso = new double[10];
+		indice = 0;
+	}
+
+	public int tamaño() {
+		return indice;
+	}
+
+	public double obtener(int p) {
+		return peso[p];
+	}
+
+	public void adicionar(double p) {
+		if (indice == tamaño())
+			ampliarArreglo();
+		peso[indice] = p;
+		indice++;
+	}
+
+	private void ampliarArreglo() {
+		double aux[] = peso;
+		peso = new double[indice + 10];
+		for (int i = 0; i < indice; i++)
+			peso[i] = aux[i];
+	}
+	
+	public void eliminarTodo() {
+		indice = 0;
+	}
+
+	public void eliminarFinal() {
+		indice--;
+	}
+	
+	
+}
